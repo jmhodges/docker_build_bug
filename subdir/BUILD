@@ -6,9 +6,16 @@ filegroup(
 )
 
 docker_build(
-    name = "two_dir_image",
+    name = "buggy_flatten_image",
     base = "wheezy",
     files = ["two_dir"],
+)
+
+docker_build(
+    name = "has_subdirs_image",
+    base = "wheezy",
+    files = ["two_dir"],
+    data_path = "."
 )
 
 genrule(
